@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+	<title>Trampos - Benefícios</title>
+
+	<link rel="stylesheet" media="screen" href="framework/bootstrap/css/bootstrap.min.css"></link>
+	<script src="framework/jquery/jquery.min.js"></script>
+	<script src="framework/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/lancamento_beneficios.js"></script>
+</head>
+<body>
+	<form class="form-horizontal center-block" style="width:50%;">
+		
+		<div class="bs-docs-section">
+			<h3 class="page-header">Benefícios</h3>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-2 control-label" for="inputCodigo">Código</label>
+			<div class="col-xs-10">
+                <input type="number" class="form-control" id="inputCodigo" name="inputCodigo" placeholder="Deixe este campo vazio para nova inserção...">
+            </div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-2 control-label" for="selectBeneficio">Benefício</label>
+			<div class="col-xs-10">
+                <select class="form-control" id="selectBeneficio" name="selectBeneficio">
+					<option value="">Selecione o benefício</option>
+				</select>
+            </div>
+		</div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputValor">Valor</label>
+            <div class="col-xs-10">
+                <input type="number" id="inputValor" class="form-control">
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputDesconto">Desconto</label>
+            <div class="col-xs-10">
+                <input type="number" id="inputDesconto" class="form-control">
+            </div>
+        </div>
+		
+		<div class="form-group">
+			<div class="col-xs-offset-2 col-xs-10">
+				<button type="button" class="btn btn-primary glyphicon glyphicon-floppy-disk" id="buttonGravar">  Gravar</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-trash" id="buttonExcluir"> Excluir</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-ban-circle" id="buttonCancelar">  Cancelar</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-arrow-left" id="buttonVoltar">  Voltar</button>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			<table class="table">
+				<thead>
+					<tr class="trCabecalho">
+						<th width="10%">Código</th>
+						<th width="50%">Descrição</th>
+						<th width="15%">Valor</th>
+						<th width="15%">Desconto</th>
+						<th width="10%">Editar</th>
+					</tr>
+				</thead>
+				
+				<tfoot class="trRodape">
+					<tr>
+						<td colspan="5" id="tdQtdeRegistros">Exibindo 0 registro(s).</td>
+					</tr>
+				</tfoot>
+				
+				<tbody id="tbodyListagem">
+				</tbody>				
+			</table>
+		</div>	
+	</form>
+</body>
+</html>

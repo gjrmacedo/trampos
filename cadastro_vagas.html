@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+	<title>Trampos - Vagas</title>
+
+	<link rel="stylesheet" media="screen" href="framework/bootstrap/css/bootstrap.min.css"></link>
+	
+	<script src="framework/jquery/jquery.min.js"></script>
+	<script src="framework/jquery/jquery.maskedinput.js"></script>
+	<script src="framework/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/cadastro_vagas.js"></script>
+</head>
+<body>
+	<form class="form-horizontal center-block" style="width:50%;">
+		
+		<div class="bs-docs-section">
+			<h3 class="page-header">Vagas</h3>
+		</div>
+		
+		<input type="hidden" id="inputCodigo"></input>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="selectEmpresa">Empresa</label>
+            <div class="col-xs-10">
+                <select id="selectEmpresa" class="form-control" name="Empresa" requiredfield >
+					<option value="">Selecione a empresa</option>
+				</select>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="selectCargo">Cargo</label>
+            <div class="col-xs-10">
+                <select id="selectCargo" class="form-control" name="Cargo" requiredfield>
+					<option value="">Selecione o cargo</option>
+				</select>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="selectStatus">Status</label>
+            <div class="col-xs-10">
+                <select id="selectStatus" class="form-control" name="Status" requiredfield>
+					<option value="Pendente">Pendente</option>
+					<option value="Aberta">Aberta</option>
+					<option value="Finalizada">Finalizada</option>
+				</select>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputData">Data</label>
+            <div class="col-xs-10">
+                <input type="text" id="inputData" class="form-control" name="Data" requiredfield>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputSalario">Salário</label>
+            <div class="col-xs-10">
+                <input type="number" id="inputSalario" class="form-control" step="any" name="Salário" requiredfield>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="textObservacoes">Observações</label>
+            <div class="col-xs-10">
+                <textarea id="textObservacoes" class="form-control"></textarea>
+            </div>
+        </div>
+		
+		<div class="form-group">
+			<div class="col-xs-offset-2 col-xs-10">
+				<button type="button" class="btn btn-primary glyphicon glyphicon-floppy-disk" id="buttonGravar">  Gravar</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-ban-circle" id="buttonCancelar">  Cancelar/Voltar</button>
+			</div>
+		</div>	
+	</form>
+</body>
+</html>

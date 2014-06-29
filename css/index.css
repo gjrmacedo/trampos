@@ -1,0 +1,17 @@
+#divMenu {
+	width:10% !important; 
+	float:left;
+	padding-top: 5px;
+}
+
+#divBody {
+	width:90%; 
+	float:right; 
+	align:top;
+}
+
+#divTop {
+	height:5%;
+	background-color:gray;
+	align:top;
+}

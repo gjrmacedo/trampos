@@ -1,0 +1,44 @@
+body {
+	margin:0;
+	padding:0;
+	font-family:Open Sans, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+table {
+	margin:0;
+	padding:0;
+	font-family:Open Sans, Helvetica, sans-serif;
+	font-size:14px;
+	border:1px solid;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+table td {
+	border:1px solid;
+}
+
+table th {
+	border:1px solid;
+	background-color: #fff !important;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+
+label {
+	float:left; 
+	height:auto;
+	text-align:right; 
+	margin:3px 20px 0 0; 
+	font-weight:normal;
+}

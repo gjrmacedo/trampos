@@ -1,0 +1,92 @@
+﻿<html>
+<head>
+	<title>Trampos - Empresas</title>
+
+	<link rel="stylesheet" media="screen" href="framework/bootstrap/css/bootstrap.min.css"></link>
+	<script src="framework/jquery/jquery.min.js"></script>
+	<script src="framework/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/cadastro_empresa.js"></script>
+</head>
+<body>
+	<form class="form-horizontal center-block" style="width:50%;">
+		
+		<div class="bs-docs-section">
+			<h3 class="page-header">Empresas</h3>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-xs-2 control-label" for="inputCodigo">Código</label>
+			<div class="col-xs-10">
+                <input type="text" class="form-control" id="inputCodigo" name="inputCodigo" placeholder="Deixe este campo vazio para nova inserção...">
+            </div>
+		</div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputNome">Nome</label>
+            <div class="col-xs-10">
+                <input type="text" id="inputNome" class="form-control" name="Nome" requiredfield>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="inputCEP">CEP</label>
+            <div class="col-xs-10">
+                <input type="text" id="inputCEP" class="form-control">
+            </div>
+        </div>
+
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="selectPorte">Porte</label>
+            <div class="col-xs-10">
+                <select id="selectPorte" class="form-control" name="Porte" requiredfield>
+					<option value="P">Pequena</option>
+					<option value="M">Média</option>
+					<option value="G">Grande</option>
+					<option value="GG">Gigante</option>
+				</select>
+            </div>
+        </div>
+		
+		<div class="form-group">
+            <label class="col-xs-2 control-label" for="selectRamo">Ramo</label>
+            <div class="col-xs-10">
+                <select id="selectRamo" class="form-control">
+					<option value="">Selecione o ramo</option>
+				</select>
+            </div>
+        </div>
+		
+		<div class="form-group">
+			<div class="col-xs-offset-2 col-xs-10">
+				<button type="button" class="btn btn-primary glyphicon glyphicon-floppy-disk" id="buttonGravar">  Gravar</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-trash" id="buttonExcluir"> Excluir</button>
+				<button type="button" class="btn btn-default glyphicon glyphicon-ban-circle" id="buttonCancelar">  Cancelar</button>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			<table class="table">
+				<thead>
+					<tr class="trCabecalho">
+						<th width="15%">Código</th>
+						<th width="45%">Nome</th>
+						<th width="20%">Ramo</th>
+						<th width="10%">Porte</th>
+						<th width="10%">Editar</th>
+					</tr>
+				</thead>
+				
+				<tfoot class="trRodape">
+					<tr>
+						<td colspan="5" id="tdQtdeRegistros">Exibindo 0 registro(s).</td>
+					</tr>
+				</tfoot>
+				
+				<tbody id="tbodyListagem">
+				</tbody>				
+			</table>
+		</div>	
+	</form>
+</body>
+</html>

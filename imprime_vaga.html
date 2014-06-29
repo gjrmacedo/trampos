@@ -1,0 +1,152 @@
+﻿<html>
+<head>
+	<title>Trampos - Listagem das vagas</title>
+
+	<link rel="stylesheet" media="screen" href="framework/bootstrap/css/bootstrap.min.css"></link>
+	<script src="framework/jquery/jquery.min.js"></script>
+	<script src="framework/bootstrap/js/bootstrap.min.js"></script>
+	
+	<style>
+		.panel-heading {
+			font-family: verdana,arial,sans-serif;
+			font-size:21px;
+			color:#333333;
+			border-width: 1px;
+			border-color: #999999;
+			border-collapse: collapse;
+		}
+		
+		table {
+			font-family: verdana,arial,sans-serif;
+			font-size:20px;
+			color:#333333;
+			border-width: 1px;
+			border-color: #999999;
+			border-collapse: collapse;
+		}
+		
+		.tdMostra {
+			font-size:24px;
+		}
+		
+		.trQuebra {
+			background-color:#ddd;
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<div class="panel panel-default" style="width:95%; float:right;">
+		<div class="panel-heading tdMostra" id="divCodigo">Código da Vaga:</div>
+		<table class="table">
+				<tr>
+					<td id="tdData"><b>Data: </b></td>
+				</tr>
+				<tr>
+					<td width="25%" id="tdEmpresa"><b>Empresa: </b></td>
+					<td id="tdRamo"><b>Ramo: </b></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td id="tdCargo"><b>Cargo: </b></td>
+					<td id="tdOrdem"><b>Ordem: </b></td>
+					<td></td>
+				</tr>
+				<tr class="trQuebra"><td colspan="3"></td></tr>
+				<tr>
+					<td colspan="3" class="tdMostra" align="center">BENEFÍCIOS</td>
+				</tr>
+				<tr class="trQuebra"><td colspan="3"></td></tr>
+				<tbody id="tbodyListagem">
+					<tr id="trBeneficios">
+						<td><b>Benefício</b></td>
+						<td><b>Valor</b></td>
+						<td><b>Desconto</b></td>
+					</tr>
+				</tbody>
+				<tr class="trQuebra"><td colspan="3"></td></tr>
+				<tr class="tdMostra">
+					<td id="tdSalario"><b>Salário: </b></td>
+					<td align="center" id="tdSalarioTotal"><b>Salário c/ Benefícios: </b></td>
+					<td></td>
+				</tr>
+						
+		</table>
+	</div>
+</body>
+<script>
+	$(document).ready(function(){
+		var idVaga = window.opener.document.getElementById("inputCodigoPrincipal").value;
+		
+		$("#divCodigo").append(idVaga);
+		
+		CarregaDadosVaga(idVaga);
+		CarregaBeneficios(idVaga);
+	});	
+	
+	function CarregaDadosVaga(pidVaga)
+	{
+		$.ajax({
+			url: "imprime_vaga.php",
+			dataType: 'json',
+			type : "GET",
+			data: {
+				cdOperacao : "V",
+				cdVaga : pidVaga
+			},
+			success: function (pJSON) {
+				pJSON.forEach(function(objJSON){
+					$("#tdData").append(objJSON.datalancamento);
+					$("#tdEmpresa").append(objJSON.idempresa + " - " + objJSON.nomefantasia);
+					$("#tdRamo").append(objJSON.ramo);
+					$("#tdCargo").append(objJSON.cargo);
+					$("#tdOrdem").append(objJSON.ordem);
+					$("#tdSalario").append(objJSON.salario);
+					$("#tdSalarioTotal").append(objJSON.salariototal);
+				});
+			},
+			erro: function(pXHR) {
+				alert(pXHR.responseText);
+			}
+		});
+	
+	}
+	
+	function CarregaBeneficios(pidVaga)
+	{
+		$.ajax({
+			url: "imprime_vaga.php",
+			dataType: 'json',
+			type : "GET",
+			data: {
+				cdOperacao : "B",
+				cdVaga : pidVaga
+			},
+			success: function (pJSON) {
+				var nrBeneficios = 0;
+			
+				if (pJSON) {
+					pJSON.forEach(function(objJSON){
+						$("#tbodyListagem").append("<tr>"+
+														"<td>" + objJSON.descricao + "</td>" +
+														"<td>" + objJSON.valor + "</td>" +
+														"<td>" + objJSON.valordesconto + "</td>" +
+													"</tr>")
+					});
+					
+					nrBeneficios = pJSON.length;
+				} 
+				
+				$("#tbodyListagem").append("<tr class='trQuebra'><td colspan='3'><b>" + nrBeneficios + " benefício(s) lançado(s).</b></td></tr>");
+				
+			},
+			erro: function(pXHR) {
+				alert(pXHR.responseText);
+			}
+		});
+	
+	}
+	
+</script>
+</html>
