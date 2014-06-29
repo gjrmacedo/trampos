@@ -1,6 +1,6 @@
 ﻿$(document).ready(function() {
 	
-	//Listagem();
+	Listagem();
 	
 	$("#inputCodigo").change(function() {
 		Abrir();
@@ -145,6 +145,6 @@ function Abrir()
 
 function Recarrega() 
 {
-	//Listagem();
+	Listagem();
 	LimparCampos();
 }
